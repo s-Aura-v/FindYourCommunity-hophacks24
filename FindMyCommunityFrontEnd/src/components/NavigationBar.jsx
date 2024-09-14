@@ -16,6 +16,5 @@ export function NavigationBar() {
                 </ul>
             </nav>
         </>
-
     )
 }
