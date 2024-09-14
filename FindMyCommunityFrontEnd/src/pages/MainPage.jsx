@@ -1,5 +1,6 @@
 import {NavigationBar} from "../components/NavigationBar.jsx";
 import {Profile} from "../components/Profile.jsx";
+
 export function MainPage() {
     return (
         <>

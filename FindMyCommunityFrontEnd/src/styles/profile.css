@@ -11,18 +11,38 @@
     padding: 20px;
 }
 
-.user-profile { grid-area: 1 / 1 / 2 / 3; }
-.events-overview { grid-area: 2 / 1 / 4 / 2; }
-.map { grid-area: 2 / 2 / 4 / 3; }
-
 .user-profile {
-background-color: red;
+    grid-area: 1 / 1 / 2 / 3;
 }
 
 .events-overview {
-background-color: blue;
+    grid-area: 2 / 1 / 4 / 2;
 }
 
 .map {
-background-color: pink;
+    grid-area: 2 / 2 / 4 / 3;
 }
+
+.user-profile {
+    background-color: red;
+}
+
+.events-overview {
+    background-color: blue;
+    display: flex;
+}
+
+.events-overview > div {
+    width: 50%;
+    background-color: pink;
+}
+
+/*.upcoming-events > *, .nearby-events > * {*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+.map {
+    background-color: pink;
+}
+
