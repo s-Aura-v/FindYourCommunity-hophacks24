@@ -1,8 +1,12 @@
 import '../styles/NavigationBarStyle.css'
 import axios from "axios";
 import {backend_url} from "../config/constants.js";
+import {useAuth0} from "@auth0/auth0-react";
+import {handleGlobalLogin} from "../config/authentication.js";
 
 export function NavigationBar() {
+
+    const {logout, user, isAuthenticated, loginWithRedirect} = useAuth0();
 
     const addEvent = () => {
         axios.post(`${backend_url}/register`, {}, {
@@ -18,6 +22,22 @@ export function NavigationBar() {
                 console.error(err);  // Log any error
             });
     }
+
+    /**
+     * When user login
+     */
+
+
+    /**
+     * When user logout
+     */
+    const handleLogout = () => {
+        logout().then(res => {
+            console.log(res)
+        });
+    }
+
+
     return (
         <>
             <nav className="navbar">
@@ -37,7 +57,15 @@ export function NavigationBar() {
                         </button>
                     </li>
                     <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#log-in">Log In</a></li>
+                    <li>
+                        {!isAuthenticated ? (<button onClick={() => {
+                           handleGlobalLogin(loginWithRedirect, user);
+                        }}>Login</button>) : (<button onClick={() => {
+                            handleLogout()
+                        }}>
+                            LogOut
+                        </button>)}
+                    </li>
                 </ul>
             </nav>
         </>

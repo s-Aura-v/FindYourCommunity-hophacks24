@@ -5,16 +5,8 @@ import { Icon } from "leaflet";
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import MarkerSVG from "../assets/marker.svg";
 import React, { useState, useRef } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, styled } from "@mui/material";
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
+import {useAuth0} from "@auth0/auth0-react";
+import Map from "./Map.jsx";
 
 export function Profile() {
     const position = [48.8566, 2.3522];
@@ -84,17 +76,7 @@ export function Profile() {
         setMarkers(markers.filter((_, index) => index !== indexToRemove));
     };
 
-    const [isEventOpen, setEventOpen] = useState(false);
-
-    const handleEventOpen = () => {
-        setEventOpen(true);
-    };
-    const handleEventClose = () => {
-        setEventOpen(false);
-    };
-
-    let user = "Placeholder";
-    let rating = "null";
+    const {user} = useAuth0();
 
     return (
         <>
@@ -105,104 +87,15 @@ export function Profile() {
             <div className="profile-container">
                 <div className="user-profile">
                     <div>
-                        Hello {user} <br />
-                        Your current rating is {rating}.
+                        <p>Hello {user ? user.name : "user"}</p>
+                        {user ? <p>Email: {user.email}</p> : ""}
                     </div>
                     <div>
-                        <img src={MarkerSVG} alt="placeholder" width="80" />
+                        <img src={user ? user.picture : MarkerSVG} alt="placeholder" width="80" />
                     </div>
                 </div>
 
-                <div className="events-overview" id="find-events">
-                    <div className="upcoming-events">
-                        <h2>Create Event</h2>
-                        <div className="forms-container">
-                            <form>
-                                <label htmlFor="ename">Event Name:</label><br/>
-                                <input type="text" id="ename" name="ename" placeholder="Enter the event name "
-                                       size="32"/><br/>
-
-                                <label htmlFor="description">Event Description:</label><br/>
-                                <input type="" className="description" id="description" name="description"
-                                       size="32"/><br/>
-
-                                <label htmlFor="tags">Tags:</label><br/>
-                                <select>
-                                    <option value="0">Select Type:</option>
-                                    <option value="1">Food bank</option>
-                                    <option value="2">School Event</option>
-                                    <option value="3">Cleanup</option>
-                                    <option value="4">Animal Work</option>
-                                    <option value="5">Blood Drive</option>
-                                    <option value="6">Misc</option>
-                                </select><br/>
-
-                                <label htmlFor="date">Date</label><br/>
-                                <input type="date" id="date" name="date"/><br/>
-
-                                <label htmlFor="tags">Maximum Participants</label><br/>
-                                <input type="text" className="max-participants" id="max-participants"
-                                       name="max-participants"/><br/>
-
-                                <label htmlFor="exact-location">Location</label><br/>
-                                <div className="marker-inputs">
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Latitude"
-                                        value={latitude}
-                                        onChange={(e) => setLatitude(e.target.value)}
-                                        />
-                                        <input
-                                        type="text"
-                                        placeholder="Enter Longitude"
-                                        value={longitude}
-                                            onChange={(e) => setLongitude(e.target.value)}
-                                    />
-                                    <button onClick={handleAddMarker} className="add-marker-button">
-                                        Add Marker
-                                    </button>
-
-                                    <form onSubmit={handleSearchSubmit}>
-                                        <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
-                                        <button type="submit">Search</button>
-                                    </form>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="nearby-events">
-                        <h2>Upcoming Events</h2>
-                        <div>
-                            table of info;
-                            backend required.
-                        </div>
-                    </div>
-                </div>
-
-                <div className="map">
-                    <MapContainer center={position} zoom={12} scrollWheelZoom={false}
-                                  style={{height: '100%', width: '100wh'}}>
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        {markers.map((marker, index) => (
-                            <Marker key={index} position={marker.geocode} icon={customIcon}>
-                                <Popup>
-                                    {marker.popUp}
-                                    <br />
-                                    <button onClick={() => removeMarker(index)}>Remove Marker</button>
-                                </Popup>
-                            </Marker>
-                        ))}
-                    </MapContainer>
-                </div>
-
-
-
-                <div onClick={handleEventOpen}>
-                    Hey
-                </div>
+                <Map/>
             </div>
         </>
     );

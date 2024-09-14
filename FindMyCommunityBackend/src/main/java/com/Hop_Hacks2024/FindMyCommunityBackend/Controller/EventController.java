@@ -22,16 +22,16 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<String> registerEvent(String test) {
-        Event event = new Event("2134","Daily Review", 20, "Oswego, NY", LocalDateTime.of(2024, 7,3, 15, 5));
-        try{
-            eventService.saveEvent(event);
-            return ResponseEntity.ok("Event registered successfully");
-
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Something went wrong");
-        }
-    }
+//    @PostMapping("/register")
+//    public ResponseEntity<String> registerEvent(String test) {
+//        Event event = new Event("2134","Daily Review", 20, "Oswego, NY", LocalDateTime.of(2024, 7,3, 15, 5));
+//        try{
+//            eventService.saveEvent(event);
+//            return ResponseEntity.ok("Event registered successfully");
+//
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body("Something went wrong");
+//        }
+//    }
 
 }
