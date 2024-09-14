@@ -8,15 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 
-@Document(collection = "users")
+@Document(collection = "Users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account {
+public class User {
     @Id
     public String id;
     public String name;
     public double showUpRate;
-    public ArrayList<Events> upcomingEvents;
-    public ArrayList<Events> completedEvents;
+    public ArrayList<Event> upcomingEvents;
+    public ArrayList<Event> completedEvents;
 }

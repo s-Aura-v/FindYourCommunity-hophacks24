@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Document(collection = "Events")
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Event{
 
     @Id

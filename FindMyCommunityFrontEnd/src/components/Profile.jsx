@@ -62,7 +62,7 @@ export function Profile() {
         } else {
             alert('Please enter valid latitude and longitude values');
         }
-    };
+    };;
 
     const [isEventOpen, setEventOpen] = useState(false);
     const [date, setDate] = useState(new Date());

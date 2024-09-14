@@ -38,5 +38,6 @@ public class EventService {
     public Optional<Event> findEventById(String id){
         return eventRepository.findById(id);
     }
+
 }
 
