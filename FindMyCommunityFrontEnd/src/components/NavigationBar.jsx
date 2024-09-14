@@ -13,6 +13,7 @@ export function NavigationBar() {
                     <li><a href="#find-events">Find Events</a></li>
                     <li><a href="#add-event">Add Event</a></li>
                     <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#log-in">Log In</a></li>
                 </ul>
             </nav>
         </>

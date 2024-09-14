@@ -50,6 +50,7 @@ body {
 /* Each link inside the nav bar */
 .nav-links li {
     margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 
 .nav-links li a {
