@@ -2,11 +2,12 @@ import '../styles/NavigationBarStyle.css'
 import axios from "axios";
 import {backend_url} from "../config/constants.js";
 import {useAuth0} from "@auth0/auth0-react";
-import {handleGlobalLogin} from "../config/authentication.js";
+import {useEffect, useState} from "react";
 
 export function NavigationBar() {
 
     const {logout, user, isAuthenticated, loginWithRedirect} = useAuth0();
+
 
     const addEvent = () => {
         axios.post(`${backend_url}/register`, {}, {
@@ -27,7 +28,27 @@ export function NavigationBar() {
      * When user login
      */
 
+    // Function to handle the login and post-authentication logic
 
+    useEffect(() => {
+        if (user) {
+            axios.post(backend_url + "/auth/checkUser", user, {
+                withCredentials: true,  // Sends credentials like cookies if needed
+                headers: {
+                    'Content-Type': 'application/json'  // Ensure the headers are correct
+                }
+            }).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.error(err);
+            })
+        }
+    }, [user]); // Set userData once it's available
+
+
+    const handleLogin = () => {
+        loginWithRedirect();
+    }
     /**
      * When user logout
      */
@@ -59,7 +80,7 @@ export function NavigationBar() {
                     <li><a href="#about-us">About Us</a></li>
                     <li>
                         {!isAuthenticated ? (<button onClick={() => {
-                           handleGlobalLogin(loginWithRedirect, user);
+                            handleLogin()
                         }}>Login</button>) : (<button onClick={() => {
                             handleLogout()
                         }}>

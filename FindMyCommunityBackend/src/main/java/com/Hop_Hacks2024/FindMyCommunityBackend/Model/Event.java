@@ -21,4 +21,13 @@ public class Event{
     private String location;
     @DateTimeFormat(pattern="dd-MM-yyyy HH:mm")
     private LocalDateTime date;
+    private String ownerSub;
+
+    public Event(String name, int max_participants, String location, LocalDateTime date, String ownerSub) {
+        this.name = name;
+        this.max_participants = max_participants;
+        this.location = location;
+        this.date = date;
+        this.ownerSub = ownerSub;
+    }
 }

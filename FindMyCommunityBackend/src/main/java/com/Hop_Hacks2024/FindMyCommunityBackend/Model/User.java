@@ -14,9 +14,18 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class User {
     @Id
-    public String id;
-    public String name;
-    public double showUpRate;
-    public ArrayList<Event> upcomingEvents;
-    public ArrayList<Event> completedEvents;
+    private String id;
+    private String name;
+    private String email;
+    private boolean isAdmin;
+    private ArrayList<String> ownedEventIds;
+    private ArrayList<String> userEventIds;
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+        this.isAdmin = false;
+        this.ownedEventIds = new ArrayList<>();
+        this.userEventIds = new ArrayList<>();
+    }
 }
