@@ -14,6 +14,8 @@ import Joseph from '../assets/joseph.png'
 
 import LinkedIn from '../assets/linkedin.svg'
 import GitHub from '../assets/github.svg'
+import Email from '../assets/email.svg'
+import WWW from '../assets/www.svg'
 
 
 export function AboutUs() {
@@ -35,8 +37,12 @@ export function AboutUs() {
                                 Saurav Lamichhane
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+                                <ul className="external-links-list">
+                                    <li><img src={LinkedIn} className="external-links" alt="LinkedIn"/>s-aura-v</li>
+                                    <li><img src={GitHub} className="external-links" alt="Github"/>s-aura-v</li>
+                                    <li><a src="s-aura-v.com> "><img src={WWW} className="external-links" alt="Webpage"/>s-aura-v.com </a></li>
+                                </ul> <br/>
+                                Roles: Frontend & Map Implementation
                             </Typography>
                         </CardContent>
                     </Card>
@@ -49,9 +55,10 @@ export function AboutUs() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                Sone
+                                Phone Pyae Sone Phyo (Soney)
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                                Role: Backend, AuthO, and Connection
                             </Typography>
                         </CardContent>
                     </Card>
@@ -67,8 +74,8 @@ export function AboutUs() {
                                 Joseph Vega
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+
+                                Roles: Frontend and Graphic Designer
                             </Typography>
                         </CardContent>
                     </Card>
@@ -76,7 +83,7 @@ export function AboutUs() {
                 </div>
                 <div className="about-us-descriptions-container">
                     <div className="section2">
-                    <h3>Our Story</h3>
+                        <h3>Our Story</h3>
 
                         <b>FindMyCommunity</b> was founded to make it easier for people to discover and participate in
                         community service events.

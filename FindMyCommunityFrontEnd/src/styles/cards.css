@@ -47,3 +47,22 @@ h3 {
     padding: 5rem;
 }
 
+.external-links {
+    width: 65px;
+}
+
+.external-links-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.external-links-list > li {
+    display: inline-block;
+    margin: 0 0 0 0;
+}
+
+
