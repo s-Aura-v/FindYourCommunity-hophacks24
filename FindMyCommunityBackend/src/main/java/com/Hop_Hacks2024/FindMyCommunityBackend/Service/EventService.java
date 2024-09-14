@@ -1,7 +1,7 @@
-package Service;
+package com.Hop_Hacks2024.FindMyCommunityBackend.Service;
 
-import Model.Event;
-import Repository.EventRepository;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Model.Event;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Repository.EventRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

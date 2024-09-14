@@ -1,18 +1,13 @@
-package Controller;
-import Model.Event;
-import Service.EventService;
+package com.Hop_Hacks2024.FindMyCommunityBackend.Controller;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Model.Event;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.time.Month;
 
 @RestController
-
 public class EventController {
     private final EventService eventService;
 
@@ -23,6 +18,7 @@ public class EventController {
 
     @GetMapping("/events")
     public Iterable<Event> getAllEvents() {
+        System.out.println("Get all events");
         return eventService.getAllEvents();
     }
 

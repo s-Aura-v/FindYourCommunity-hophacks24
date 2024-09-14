@@ -1,4 +1,4 @@
-package Model;
+package com.Hop_Hacks2024.FindMyCommunityBackend.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
