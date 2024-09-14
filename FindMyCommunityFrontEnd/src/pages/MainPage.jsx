@@ -1,4 +1,5 @@
 import {NavigationBar} from "../components/NavigationBar.jsx";
+import {Profile} from "../components/Profile.jsx";
 export function MainPage() {
     return (
         <>
@@ -6,7 +7,7 @@ export function MainPage() {
                 <NavigationBar />
                 <div id="home" className="section">
                     <h1>Welcome to FindMyCommunity</h1>
-                    <p>Connecting Volunteers with Opportunities to Make a Difference</p>
+                    <Profile />
                 </div>
 
                 <div id="find-events" className="section">

@@ -1,6 +1,28 @@
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    background-color: skyblue;
-    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: .4fr 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    height: 100vh;
+}
+
+.profile-container > div {
+    padding: 20px;
+}
+
+.user-profile { grid-area: 1 / 1 / 2 / 3; }
+.events-overview { grid-area: 2 / 1 / 4 / 2; }
+.map { grid-area: 2 / 2 / 4 / 3; }
+
+.user-profile {
+background-color: red;
+}
+
+.events-overview {
+background-color: blue;
+}
+
+.map {
+background-color: pink;
 }

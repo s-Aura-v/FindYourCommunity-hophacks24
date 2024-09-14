@@ -12,7 +12,6 @@ function App() {
     <>
       <div>
          <MainPage />
-          <Profile />
           <CreateEvents />
           <Search />
 

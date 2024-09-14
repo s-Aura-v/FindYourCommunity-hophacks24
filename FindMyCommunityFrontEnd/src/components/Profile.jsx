@@ -4,8 +4,14 @@ export function Profile() {
         <>
             <div className="profile-container">
                 <div>username:</div>
-                <div>
+                <div className="user-profile">
                     Create Task
+                </div>
+                <div className="events-overview">
+                wimo
+                </div>
+                <div className="map">
+                    wino
                 </div>
             </div>
 
