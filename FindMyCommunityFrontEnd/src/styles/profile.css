@@ -7,9 +7,20 @@
     height: 100vh;
 }
 
+.profile-picture img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Ensure height and width are equal for a circular image */
+    border-radius: 50%; /* This makes the image a circle */
+    border: 2px solid #ccc; /* Optional: adds a border around the image */
+}
+
 .profile-container > div {
     padding: 20px;
 }
+
+.user-profile { grid-area: 1 / 1 / 2 / 3; }
+.events-overview { grid-area: 2 / 1 / 4 / 2; }
+.map { grid-area: 2 / 2 / 4 / 3; }
 
 .user-profile {
     grid-area: 1 / 1 / 2 / 3;
@@ -47,4 +58,3 @@
 .map {
     /*background-color: pink;*/
 }
-
