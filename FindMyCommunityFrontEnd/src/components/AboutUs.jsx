@@ -49,7 +49,7 @@ export function AboutUs() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                Sone
+                                Phone Pyae Sone Phyo (Soney)
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
                                 Backend <br/>
