@@ -124,7 +124,7 @@ export function Profile() {
 
                                 <label htmlFor="description">Event Description:</label><br/>
                                 <input type="" className="description" id="description" name="description"
-                                       size="54"/><br/>
+                                       size="32"/><br/>
 
                                 <label htmlFor="tags">Tags:</label><br/>
                                 <select>
@@ -136,20 +136,6 @@ export function Profile() {
                                     <option value="5">Blood Drive</option>
                                     <option value="6">Misc</option>
                                 </select><br/>
-
-                                <label htmlFor="street">Street Address</label><br/>
-                                <input type="text" id="street" name="street"/><br/>
-
-                                <label htmlFor="postal-code">ZIP Code</label><br/>
-                                <input type="text" className="postal-code" id="postal-code" name="postal-code"
-                                       autoComplete="postal-code"/><br/>
-
-                                <label htmlFor="city">City</label><br/>
-                                <input type="text" className="city" id="city" name="city"/><br/>
-
-                                <label htmlFor="country">Country</label><br/>
-                                <input type="text" className="country" id="country" name="country"
-                                       autoComplete="country"/><br/>
 
                                 <label htmlFor="date">Date</label><br/>
                                 <input type="date" id="date" name="date"/><br/>
@@ -165,16 +151,21 @@ export function Profile() {
                                         placeholder="Enter Latitude"
                                         value={latitude}
                                         onChange={(e) => setLatitude(e.target.value)}
-                                    />
-                                    <input
+                                        />
+                                        <input
                                         type="text"
                                         placeholder="Enter Longitude"
                                         value={longitude}
-                                        onChange={(e) => setLongitude(e.target.value)}
+                                            onChange={(e) => setLongitude(e.target.value)}
                                     />
                                     <button onClick={handleAddMarker} className="add-marker-button">
                                         Add Marker
                                     </button>
+
+                                    <form onSubmit={handleSearchSubmit}>
+                                        <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
+                                        <button type="submit">Search</button>
+                                    </form>
                                 </div>
                             </form>
                         </div>
@@ -207,11 +198,7 @@ export function Profile() {
                     </MapContainer>
                 </div>
 
-                {/* Search form */}
-                <form onSubmit={handleSearchSubmit}>
-                    <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
-                    <button type="submit">Search</button>
-                </form>
+
 
                 <div onClick={handleEventOpen}>
                     Hey
