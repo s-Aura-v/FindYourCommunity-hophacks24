@@ -6,8 +6,11 @@ import '../styles/main.css'
 export function MainPage() {
     return (
         <>
+            <div className="section"></div>
             <NavigationBar/>
+
             <div className="main-page">
+
                 <div id="home" className="section">
                     <Profile/>
                 </div>
