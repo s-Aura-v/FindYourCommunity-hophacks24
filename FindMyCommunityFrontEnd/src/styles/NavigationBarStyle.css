@@ -1,6 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #FBF9F1;
+
 }
 
 /* Styling for the logo image */
@@ -12,7 +14,7 @@ body {
 
 /* Styling for the navigation bar */
 .navbar {
-    background-color: #4CAF50; /* Green background */
+    background-color: #92C7CF;
     padding: 1rem; /* Padding around the content */
     display: flex;
     justify-content: space-between;
@@ -64,7 +66,7 @@ html {
 /* Responsive Design for Mobile Devices */
 @media (max-width: 768px) {
     .navbar {
-
+        position: sticky;
     }
 
     .nav-links {

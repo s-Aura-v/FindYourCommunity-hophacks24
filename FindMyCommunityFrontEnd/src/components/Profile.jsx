@@ -82,11 +82,11 @@ export function Profile() {
                 <title>Leaflet</title>
             </Helmet>
             <div className="profile-container">
-                <div>username:</div>
                 <div className="user-profile">
                     Create Task
                 </div>
-                <div className="events-overview">
+
+                <div className="events-overview" id="find-events">
                     <div className="upcoming-events">
                         <h2>Upcoming Events</h2>
                         <div>
