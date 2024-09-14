@@ -1,15 +1,19 @@
+import { useState } from 'react'
 import './App.css'
-
-
+import {Profile} from "./components/Profile.jsx";
+import {CreateEvents} from "./components/CreateEvent.jsx";
+import {Search} from "./components/Search.jsx";
 import {NavigationBar} from "./components/NavigationBar.jsx";
-import {AboutUs} from "./components/AboutUs.jsx";
 
 function App() {
 
   return (
     <>
       <div>
-          <NavigationBar />
+         <NavigationBar />
+          <Profile />
+          <CreateEvents />
+          <Search />
 
       </div>
     </>

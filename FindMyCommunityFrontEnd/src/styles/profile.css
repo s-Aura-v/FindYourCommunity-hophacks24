@@ -1,0 +1,6 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    background-color: skyblue;
+    border: 1px solid black;
+}
