@@ -16,13 +16,13 @@ import LinkedIn from '../assets/linkedin.svg'
 import GitHub from '../assets/github.svg'
 
 
-
 export function AboutUs() {
     return (
         <>
             <div className="about-us-container">
                 <h2>About Us</h2>
-                <p> At <b>FindMyCommunity</b>, we believe in the power of community service to create lasting, positive change. </p>
+                <p> At <b>FindMyCommunity</b>, we believe in the power of community service to create lasting, positive
+                    change. </p>
                 <div className="cards-setup">
                     <Card sx={{maxWidth: 345}}>
                         <CardMedia
@@ -62,7 +62,7 @@ export function AboutUs() {
                         <CardMedia
                             sx={{height: 300}}
                             image={Joseph}
-                            title="Joseph"
+                            title="Joseph Vega"
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
@@ -76,29 +76,35 @@ export function AboutUs() {
                     </Card>
 
                 </div>
-                <h3>Our Story</h3>
-                <p>
-                    <b>FindMyCommunity</b> was founded to make it easier for people to discover and participate in
-                    community service events.
-                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                    Whether you're looking to volunteer your time, attend a local event, or organize one of your own,
-                    our platform is here to help.
-                    We aim to bridge the gap between those who want to help and the causes that need them the most.
-                </p>
+                <div className="about-us-descriptions-container">
+                    <div className="section2">
+                    <h3>Our Story</h3>
 
-                <h3>Our Mission</h3>
-                <p3>
-                    Our goal is to make volunteering accessible to everyone.
-                    We strive to foster connections between individuals and organizations,
-                    allowing people to easily contribute their skills and passions to causes they care about.
-                    Through FindMyCommunity, we aim to cultivate a stronger, more engaged society.
-                </p3>
-                <h3>Join Us in Making a Difference</h3>
-                <p4>
-                    We believe that together, we can build stronger, more vibrant communities.
-                    Whether you're a seasoned volunteer or just getting started,
-                    FindMyCommunity is your go-to resource for finding opportunities to contribute.
-                </p4>
+                        <b>FindMyCommunity</b> was founded to make it easier for people to discover and participate in
+                        community service events.
+                        {/* eslint-disable-next-line react/no-unescaped-entities */}
+                        Whether you're looking to volunteer your time, attend a local event, or organize one of your
+                        own,
+                        our platform is here to help.
+                        We aim to bridge the gap between those who want to help and the causes that need them the most.
+                    </div>
+
+
+                    <div className="section2">
+                        <h3>Our Mission</h3>
+                        Our goal is to make volunteering accessible to everyone.
+                        We strive to foster connections between individuals and organizations,
+                        allowing people to easily contribute their skills and passions to causes they care about.
+                        Through FindMyCommunity, we aim to cultivate a stronger, more engaged society.
+                    </div>
+
+                    <div className="section2">
+                        <h3>Join Us in Making a Difference</h3>
+                        We believe that together, we can build stronger, more vibrant communities.
+                        Whether you're a seasoned volunteer or just getting started,
+                        FindMyCommunity is your go-to resource for finding opportunities to contribute.
+                    </div>
+                </div>
 
                 <p>Let’s make a difference—one event, one volunteer at a time.</p>
             </div>
