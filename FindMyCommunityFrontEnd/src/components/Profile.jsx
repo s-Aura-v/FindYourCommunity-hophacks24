@@ -7,6 +7,17 @@ import MarkerSVG from "../assets/marker.svg"
 import MarkerPNG from "../assets/markerpng.png"
 import React, {useState} from "react";
 import {CreateEvents} from "./CreateEvent.jsx";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, styled} from "@mui/material";
+
+const BootstrapDialog = styled(Dialog)(({theme}) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
+
 
 export function Profile() {
     const position = [48.8566, 2.3522]
@@ -53,6 +64,15 @@ export function Profile() {
         }
     };
 
+    const [isEventOpen, setEventOpen] = useState(false);
+    const [date, setDate] = useState(new Date());
+
+    const handleEventOpen = () => {
+        setEventOpen(true);
+    };
+    const handleEventClose = () => {
+        setEventOpen(false);
+    };
 
 
     return (
@@ -83,7 +103,7 @@ export function Profile() {
                     </div>
                 </div>
                 <div className="map">
-                    <MapContainer center={position} zoom={14} scrollWheelZoom={false}
+                    <MapContainer center={position} zoom={12} scrollWheelZoom={false}
                                   style={{height: '100%', width: '100wh'}}
                     >
                         <TileLayer
@@ -117,8 +137,80 @@ export function Profile() {
                     </button>
                 </div>
 
-                <CreateEvents />
+                <div onClick={handleEventOpen}>
+                    Hey
+                </div>
+                <BootstrapDialog
+                    onClose={handleEventClose}
+                    open={isEventOpen}
+                    maxWidth='sm' x
+                    fullWidth
+                >
+                    <DialogTitle className="popup-title">
+                        <span> Create Events  </span>
+                    </DialogTitle>
+                    <DialogContent className="overflow-clip" dividers>
+                        <div className="forms-container">
+                            <form>
+                                <label htmlFor="ename">Event Name:</label><br/>
+                                <input type="text" id="ename" name="ename" placeholder="Enter the event name "
+                                       size="32"/><br/>
 
+                                <label htmlFor="tags">Event Description:</label><br/>
+                                <input type="text" className="description" id="description" name="description"
+                                       size="54"/><br/>
+
+
+                                <label htmlFor="street">Street Address</label><br/>
+                                <input type="text" id="street" name="street"/><br/>
+
+                                <label htmlFor="postal-code">ZIP Code</label><br/>
+                                <input type="text" className="postal-code" id="postal-code" name="postal-code"
+                                       autoComplete="postal-code"/><br/>
+
+                                <label htmlFor="city">City</label><br/>
+                                <input type="text" className="city" id="city" name="city"/><br/>
+
+                                <label htmlFor="country">Country</label><br/>
+                                <input type="text" className="country" id="country" name="country"
+                                       autoComplete="country"/><br/>
+
+                                <label htmlFor="date">Date</label><br/>
+                                <input type="date" id="date" name="date"/><br/>
+
+
+                                <label htmlFor="tags">Maximum Participants</label><br/>
+                                <input type="text" className="max-participants" id="max-participants"
+                                       name="max-participants"/><br/>
+
+                                <div className="marker-inputs">
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Latitude"
+                                        value={latitude}
+                                        onChange={(e) => setLatitude(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Longitude"
+                                        value={longitude}
+                                        onChange={(e) => setLongitude(e.target.value)}
+                                    />
+                                    <button onClick={handleAddMarker} className="add-marker-button">
+                                        Add Marker
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </DialogContent>
+                    <DialogActions>
+                        <Button autoFocus onClick={handleEventClose}>
+                            Close
+                        </Button>
+                    </DialogActions>
+                </BootstrapDialog>
 
 
             </div>
