@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import '../styles/cards.css'
 
 import Saurav from '../assets/saurav.png'
+import Sone from '../assets/soney.jpg'
+import Joseph from '../assets/joseph.png'
+
 import LinkedIn from '../assets/linkedin.svg'
 import GitHub from '../assets/github.svg'
 
@@ -40,7 +43,7 @@ export function AboutUs() {
                     <Card sx={{maxWidth: 345, minWidth: 245}}>
                         <CardMedia
                             sx={{height: 300}}
-                            // image={Sone}
+                            image={Sone}
                             title="Sone"
                         />
                         <CardContent>
@@ -55,7 +58,7 @@ export function AboutUs() {
                     <Card sx={{maxWidth: 345, minWidth: 245}}>
                         <CardMedia
                             sx={{height: 300}}
-                            // image={Saurav}
+                            image={Joseph}
                             title="Joseph"
                         />
                         <CardContent>
