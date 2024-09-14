@@ -4,7 +4,7 @@ export function NavigationBar() {
         <>
             <nav className="navbar">
                 <div className="logo">
-                    <a href="#home">
+                    <a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
                         <img src="src/assets/FindMyCommunity-.png" alt="FindMyCommunity Logo" className="logo-img"/>
                     </a>
                 </div>
