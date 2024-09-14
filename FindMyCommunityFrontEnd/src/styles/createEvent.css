@@ -1,0 +1,9 @@
+.create-event-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.forms-container {
+    margin-left: 40px;
+
+}
