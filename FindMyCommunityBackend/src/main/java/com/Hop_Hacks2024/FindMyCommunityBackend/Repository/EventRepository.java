@@ -1,6 +1,6 @@
-package Repository;
+package com.Hop_Hacks2024.FindMyCommunityBackend.Repository;
 
-import Model.Event;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Model.Event;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

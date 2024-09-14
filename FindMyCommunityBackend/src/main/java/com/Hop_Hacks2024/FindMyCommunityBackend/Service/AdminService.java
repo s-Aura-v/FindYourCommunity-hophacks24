@@ -1,9 +1,7 @@
-package Service;
+package com.Hop_Hacks2024.FindMyCommunityBackend.Service;
 
-import Model.Admin;
-import Model.Event;
-import Repository.AdminRepository;
-import Repository.EventRepository;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Model.Admin;
+import com.Hop_Hacks2024.FindMyCommunityBackend.Repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
