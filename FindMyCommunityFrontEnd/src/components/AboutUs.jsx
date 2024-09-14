@@ -97,7 +97,7 @@ export function AboutUs() {
                     </div>
 
                     <div className="section2">
-                        <h3>Join Us in Making a Difference</h3>
+                        <h3>Making a Difference</h3>
                         We believe that together, we can build stronger, more vibrant communities.
                         Whether you're a seasoned volunteer or just getting started,
                         FindMyCommunity is your go-to resource for finding opportunities to contribute.

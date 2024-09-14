@@ -36,9 +36,9 @@ export function InfoBar() {
             {isVisible && (
                 <div id="info-bar" className="info-bar-visible">
                     <p>This is the info bar with more details!</p>
-                    <button id="close-info-bar" onClick={closeInfoBar}>
+                    {/*<button id="close-info-bar" onClick={closeInfoBar}>
                         Close
-                    </button>
+                    </button>*/}
                 </div>
             )}
         </>

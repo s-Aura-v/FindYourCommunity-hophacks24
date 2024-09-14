@@ -20,7 +20,7 @@ export function MainPage() {
                 </div>
 
             </div>
-            {/*<InfoBar/>*/}
+            <InfoBar/>
         </>
     )
 }
