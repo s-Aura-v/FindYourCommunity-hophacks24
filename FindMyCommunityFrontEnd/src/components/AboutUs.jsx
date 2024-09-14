@@ -35,8 +35,8 @@ export function AboutUs() {
                                 Saurav Lamichhane
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+                                Frontend <br/>
+                                Map Implementation <br/>
                             </Typography>
                         </CardContent>
                     </Card>
@@ -52,6 +52,8 @@ export function AboutUs() {
                                 Sone
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                                Backend <br/>
+                                AuthO Connection <br/>
                             </Typography>
                         </CardContent>
                     </Card>
@@ -64,11 +66,11 @@ export function AboutUs() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                Joseph
+                                Joseph Vega
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+                                Frontend <br/>
+                                Idea Guy <br/>
                             </Typography>
                         </CardContent>
                     </Card>

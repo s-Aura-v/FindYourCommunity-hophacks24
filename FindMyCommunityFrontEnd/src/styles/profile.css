@@ -18,15 +18,20 @@
     padding: 20px;
 }
 
+.events-overview {
+    grid-area: 2 / 1 / 4 / 2;
+}
 
-.user-profile { grid-area: 1 / 1 / 2 / 3; }
-.events-overview { grid-area: 2 / 1 / 4 / 2; }
-.map { grid-area: 2 / 2 / 4 / 3; }
+.map {
+    grid-area: 2 / 2 / 4 / 3;
+}
 
 .user-profile {
     grid-area: 1 / 1 / 2 / 3;
     display: flex;
     justify-content: space-between;
+    background-color: #f1e9cd;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .events-overview {
@@ -37,10 +42,6 @@
     grid-area: 2 / 2 / 4 / 3;
 }
 
-.user-profile {
-    background-color: #f1e9cd;
-}
-
 .events-overview {
     /*background-color: blue;*/
     display: flex;
@@ -48,14 +49,5 @@
 
 .events-overview > div {
     width: 50%;
-    /*background-color: pink;*/
 }
 
-/*.upcoming-events > *, .nearby-events > * {*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*}*/
-
-.map {
-    /*background-color: pink;*/
-}

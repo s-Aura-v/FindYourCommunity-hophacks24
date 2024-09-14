@@ -1,20 +1,10 @@
 import '../styles/profile.css';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Helmet } from "react-helmet";
-import { Icon } from "leaflet";
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
+import {Helmet} from "react-helmet";
+import {Icon} from "leaflet";
+import {OpenStreetMapProvider} from 'leaflet-geosearch';
 import MarkerSVG from "../assets/marker.svg";
-import React, { useState, useRef } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, styled } from "@mui/material";
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
+import React, {useState, useRef} from "react";
 
 export function Profile() {
     const position = [48.8566, 2.3522];
@@ -48,9 +38,9 @@ export function Profile() {
         const query = searchInputRef.current.value;
 
         if (query) {
-            const results = await provider.search({ query });
+            const results = await provider.search({query});
             if (results.length > 0) {
-                const { x: lng, y: lat } = results[0];
+                const {x: lng, y: lat} = results[0];
                 setLatitude(lat);
                 setLongitude(lng);
                 addMarker(lat, lng);
@@ -99,17 +89,17 @@ export function Profile() {
     return (
         <>
             <Helmet>
-                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
                 <title>Leaflet</title>
             </Helmet>
             <div className="profile-container">
                 <div className="user-profile">
                     <div>
-                        Hello {user} <br />
+                        Hello {user} <br/>
                         Your current rating is {rating}.
                     </div>
                     <div>
-                        <img src={MarkerSVG} alt="placeholder" width="80" />
+                        <img src={MarkerSVG} alt="placeholder" width="80"/>
                     </div>
                 </div>
 
@@ -151,12 +141,12 @@ export function Profile() {
                                         placeholder="Enter Latitude"
                                         value={latitude}
                                         onChange={(e) => setLatitude(e.target.value)}
-                                        />
-                                        <input
+                                    />
+                                    <input
                                         type="text"
                                         placeholder="Enter Longitude"
                                         value={longitude}
-                                            onChange={(e) => setLongitude(e.target.value)}
+                                        onChange={(e) => setLongitude(e.target.value)}
                                     />
                                     <button onClick={handleAddMarker} className="add-marker-button">
                                         Add Marker
@@ -190,18 +180,12 @@ export function Profile() {
                             <Marker key={index} position={marker.geocode} icon={customIcon}>
                                 <Popup>
                                     {marker.popUp}
-                                    <br />
+                                    <br/>
                                     <button onClick={() => removeMarker(index)}>Remove Marker</button>
                                 </Popup>
                             </Marker>
                         ))}
                     </MapContainer>
-                </div>
-
-
-
-                <div onClick={handleEventOpen}>
-                    Hey
                 </div>
             </div>
         </>
