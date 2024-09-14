@@ -1,0 +1,9 @@
+.about-us-container {
+    background-color: #FBF9F1;
+}
+
+.cards-setup {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5rem;
+}

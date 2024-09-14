@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../styles/cards.css'
 
-
 import Saurav from '../assets/saurav.png'
 import LinkedIn from '../assets/linkedin.svg'
 import GitHub from '../assets/github.svg'
@@ -19,7 +18,7 @@ export function AboutUs() {
     return (
         <>
             <div className="about-us-container">
-                <h2 className="fo">About Us</h2>
+                <h2>About Us</h2>
                 <div className="cards-setup">
                     <Card sx={{maxWidth: 345}}>
                         <CardMedia
@@ -49,8 +48,6 @@ export function AboutUs() {
                                 Sone
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Backend
-                                Autho Implementation
                             </Typography>
                         </CardContent>
                     </Card>
@@ -67,7 +64,7 @@ export function AboutUs() {
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
                                 Frontend
-                                Designer
+                                Map Implementation
                             </Typography>
                         </CardContent>
                     </Card>

@@ -49,7 +49,6 @@ export function CreateEvents() {
                             <input type="text" className="description" id="description" name="description"
                                    size="54"/><br/>
 
-
                             <label htmlFor="street">Street Address</label><br/>
                             <input type="text" id="street" name="street"/><br/>
 
