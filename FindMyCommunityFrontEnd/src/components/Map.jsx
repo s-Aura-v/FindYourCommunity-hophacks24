@@ -102,6 +102,16 @@ function Map() {
 
         };
 
+        setEventName("");
+        setDescription("");
+        setTags("");
+        setDate("");
+        setMaxParticipants("");
+        setTimeStart("");
+        setTimeEnd("");
+        setLatitude("");
+        setLongitude("");
+
         axios.post(backend_url + "/create-event", eventData, {
             withCredentials: true,  // Sends credentials like cookies if needed
             headers: {
