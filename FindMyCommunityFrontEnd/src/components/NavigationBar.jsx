@@ -59,9 +59,9 @@ export function NavigationBar() {
                     <li><a href="#find-events">Find Events</a></li>
                     <li><a href="#about-us">About Us</a></li>
                     <li>
-                        {!isAuthenticated ? (<button onClick={() => {
+                        {!isAuthenticated ? (<div className="login-button" onClick={() => {
                             handleLogin()
-                        }}>Login</button>) : (<button onClick={() => {
+                        }}>Login</div>) : (<button className="login-button" onClick={() => {
                             handleLogout()
                         }}>
                             LogOut

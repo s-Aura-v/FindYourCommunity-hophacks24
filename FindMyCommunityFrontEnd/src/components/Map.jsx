@@ -12,16 +12,21 @@ function Map() {
     const position = [40.7128, -74.0060];
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
-    const [markers, setMarkers] = useState([
-    ]);
-    // const [upcomingEventsArray, setEventsData]   = useState(UserEvents>([]));
-    //
-    // const getiDs = async () => {
-    //     const events = axios.get<{ eventID, eventName, eventDescription, maxParticipants, date, timeStart, timeEnd, tags, latitude, longitude }>(backend_url + "/events");
-    //     const eventsData = events.data;
-    //     setEventsData(eventsData);
-    //     console.log(eventsData);
-    // }
+    const [markers, setMarkers] = useState([]);
+
+
+    const [eventsArray, setEventsArray]   = useState([]);
+    const getiDs = async () => {
+        const event = await axios.get<{ eventName, description, maxParticipants, date, timeStart, timeEnd, latitude, longitude }>(backend_url + "/people/events/");
+        const eventData = event.data;
+        setEventsArray(eventData);
+        console.log(eventData);
+    }
+
+
+
+
+
 
     const [eventName, setEventName] = useState('');
     const [description, setDescription] = useState('');
@@ -236,12 +241,14 @@ function Map() {
                                 Submit
                             </button>
                         </div>
-
-                        {/* Search form */}
+                        <h6>
+                            You must press search, then submit.
+                        </h6>
                         <form onSubmit={handleSearchSubmit || handleAddMarker}>
                             <input size="32" ref={searchInputRef} type="text" placeholder="Search for a location"/>
                             <button type="submit">Search</button>
                         </form>
+
                     </div>
                 </div>
                 <div className="nearby-events">
