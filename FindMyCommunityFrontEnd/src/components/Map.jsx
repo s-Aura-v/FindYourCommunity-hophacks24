@@ -1,26 +1,14 @@
-import  {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {Icon} from "leaflet";
 import MarkerSVG from "../assets/marker.svg";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 
 function Map() {
-    const position = [48.8566, 2.3522];
+    const position = [40.7826, 73.9656];
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [markers, setMarkers] = useState([
-        {
-            geocode: [48.86, 2.3522],
-            popUp: "Hello, I am pop up 1"
-        },
-        {
-            geocode: [48.85, 2.3522],
-            popUp: "Hello, I am pop up 2"
-        },
-        {
-            geocode: [48.855, 2.34],
-            popUp: "Hello, I am pop up 3"
-        }
     ]);
 
     const customIcon = new Icon({
@@ -106,6 +94,7 @@ function Map() {
                                    name="max-participants"/><br/>
 
                             <label htmlFor="exact-location">Location</label><br/>
+
                             <div className="marker-inputs">
                                 <input
                                     type="text"
@@ -122,23 +111,24 @@ function Map() {
                                 <button onClick={handleAddMarker} className="add-marker-button">
                                     Add Marker
                                 </button>
-
-                                <form onSubmit={handleSearchSubmit}>
-                                    <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
-                                    <button type="submit">Search</button>
-                                </form>
                             </div>
+                        </form>
+                        {/* Search form */}
+                        <form onSubmit={handleSearchSubmit}>
+                            <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
+                            <button type="submit">Search</button>
                         </form>
                     </div>
                 </div>
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
-                    <div>
+                    <div className="individual-event">
                         table of info;
                         backend required.
                     </div>
                 </div>
             </div>
+
 
             <div className="map">
                 <MapContainer center={position} zoom={12} scrollWheelZoom={false}
@@ -149,7 +139,7 @@ function Map() {
                     />
                     {markers.map((marker, index) => (
                         <Marker key={index} position={marker.geocode} icon={customIcon}>
-                            <Popup>
+                        <Popup>
                                 {marker.popUp}
                                 <br/>
                                 <button onClick={() => removeMarker(index)}>Remove Marker</button>

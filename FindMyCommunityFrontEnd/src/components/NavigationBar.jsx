@@ -5,10 +5,7 @@ import {useAuth0} from "@auth0/auth0-react";
 import {useEffect, useState} from "react";
 
 export function NavigationBar() {
-
     const {logout, user, isAuthenticated, loginWithRedirect} = useAuth0();
-
-
     const addEvent = () => {
         axios.post(`${backend_url}/register`, {}, {
             withCredentials: true,  // Sends credentials like cookies if needed
@@ -23,13 +20,7 @@ export function NavigationBar() {
                 console.error(err);  // Log any error
             });
     }
-
-    /**
-     * When user login
-     */
-
     // Function to handle the login and post-authentication logic
-
     useEffect(() => {
         if (user) {
             axios.post(backend_url + "/auth/checkUser", user, {
@@ -44,8 +35,6 @@ export function NavigationBar() {
             })
         }
     }, [user]); // Set userData once it's available
-
-
     const handleLogin = () => {
         loginWithRedirect();
     }
@@ -57,8 +46,6 @@ export function NavigationBar() {
             console.log(res)
         });
     }
-
-
     return (
         <>
             <nav className="navbar">
