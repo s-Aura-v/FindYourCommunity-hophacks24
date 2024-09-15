@@ -1,7 +1,9 @@
 .about-us-container {
-
+    padding-top: 130px; /* Adjust this value according to your navbar height */
+    margin-top: -80px;
     background-color: #FBF9F1;
 }
+
 .about-us-descriptions-container {
     display: flex;
     justify-content: space-between; /* Adds space between the sections */
@@ -63,6 +65,10 @@ h3 {
     margin: auto;
 }
 
+.bbb{
+    padding-top: 10px;
+    text-align: center;
+}
 
 
 

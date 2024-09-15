@@ -37,6 +37,7 @@ textarea {
 }
 
 .events-overview {
+    
     grid-area: 2 / 1 / 4 / 2;
 }
 

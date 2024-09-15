@@ -3,12 +3,40 @@ import {Icon} from "leaflet";
 import MarkerSVG from "../assets/marker.svg";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
+import {backend_url} from "../config/constants.js";
+import axios from "axios";
+import {useAuth0} from "@auth0/auth0-react";
 
 function Map() {
-    const position = [40.7826, -73.9656];
+    const {isAuthenticated, user} = useAuth0();
+    const position = [40.7128, -74.0060];
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
-    const [markers, setMarkers] = useState([]);
+    const [markers, setMarkers] = useState([
+        {
+            geocode: [48.86, 2.3522],
+            popUp: "Hello, I am pop up 1"
+        },
+        {
+            geocode: [48.85, 2.3522],
+            popUp: "Hello, I am pop up 2"
+        },
+        {
+            geocode: [48.855, 2.34],
+            popUp: "Hello, I am pop up 3"
+        }
+    ]);
+
+    const [eventName, setEventName] = useState('');
+    const [description, setDescription] = useState('');
+    const [tags, setTags] = useState('');
+    const [date, setDate] = useState('');
+    const [maxParticipants, setMaxParticipants] = useState('');
+    const [timeStart, setTimeStart] = useState('');
+    const [timeEnd, setTimeEnd] = useState('');
+    // const [latitude, setLatitude] = useState('');
+    // const [longitude, setLongitude] = useState('');
+
 
     const customIcon = new Icon({
         iconUrl: MarkerSVG,
@@ -53,7 +81,36 @@ function Map() {
             alert('Please enter valid latitude and longitude values');
         }
     };
-    ;
+
+    const sendEventToBackend = () => {
+
+        if (!isAuthenticated) {
+            return
+        }
+        const email = user.email
+        const eventData = {
+            eventName,
+            description,
+            tags,
+            date,
+            maxParticipants,
+            email,
+            timeStart,
+            timeEnd,
+            latitude,
+            longitude
+
+        };
+
+        axios.post(backend_url + "/create-event", eventData, {
+            withCredentials: true,  // Sends credentials like cookies if needed
+            headers: {
+                'Content-Type': 'application/json'  // Ensure the headers are correct
+            }
+        }).then(res => {
+            console.log(res)
+        })
+    }
 
     // New removeMarker function
     const removeMarker = (indexToRemove) => {
@@ -65,34 +122,86 @@ function Map() {
                 <div className="upcoming-events">
                     <h2>Create Event</h2>
                     <div className="forms-container">
-                        <form>
+                        <div>
                             <label htmlFor="ename">Event Name:</label><br/>
-                            <input type="text" id="ename" name="ename" placeholder="Enter the event name "
-                                   size="32"/><br/>
+                            <input
+                                type="text"
+                                id="ename"
+                                name="ename"
+                                placeholder="Enter the event name"
+                                size="32"
+                                value={eventName}
+                                required
+                                onChange={(e) => setEventName(e.target.value)}
+                            /><br/>
 
                             <label htmlFor="description">Event Description:</label><br/>
-                            <textarea id="description" name="description" rows="5" cols="32"/><br/>
+                            <input
+                                type="text"
+                                className="description"
+                                id="description"
+                                name="description"
+                                size="32"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            /><br/>
 
                             <label htmlFor="tags">Tags:</label><br/>
-                            <select>
-                                <option value="0">Select Type:</option>
-                                <option value="1">Food Bank</option>
-                                <option value="2">School Event</option>
-                                <option value="3">Cleanup</option>
-                                <option value="4">Animal Work</option>
-                                <option value="5">Blood Drive</option>
-                                <option value="6">Misc</option>
+                            <select
+                                id="tags"
+                                name="tags"
+                                value={tags}
+                                onChange={(e) => setTags(e.target.value)}
+                            >
+                                <option value="">Select Type:</option>
+                                <option value="Food bank">Food bank</option>
+                                <option value="School Event">School Event</option>
+                                <option value="Cleanup">Cleanup</option>
+                                <option value="Animal Work">Animal Work</option>
+                                <option value="Blood Drive">Blood Drive</option>
+                                <option value="Misc">Misc</option>
                             </select><br/>
 
-                            <label htmlFor="date">Date</label><br/>
-                            <input type="date" id="date" name="date"/><br/>
+                            <label htmlFor="date">Date:</label><br/>
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            /><br/>
 
-                            <label htmlFor="tags">Maximum Participants</label><br/>
-                            <input type="text" className="max-participants" id="max-participants"
-                                   name="max-participants"/><br/>
+                            <label htmlFor="time">TimeStart:</label><br/>
+                            <input
+                                type="time"
+                                id="timeStart"
+                                name="timeStart"
+                                required
+                                value={timeStart}
+                                onChange={(e) => setTimeStart(e.target.value)}
+                            /><br/>
 
-                            <label htmlFor="exact-location">Location</label><br/>
+                            <label htmlFor="time">TimeEnd:</label><br/>
+                            <input
+                                type="time"
+                                id="timeEnd"
+                                name="timeEnd"
+                                required
+                                value={timeEnd}
+                                onChange={(e) => setTimeEnd(e.target.value)}
+                            /><br/>
 
+                            <label htmlFor="max-participants">Maximum Participants:</label><br/>
+                            <input
+                                type="text"
+                                className="max-participants"
+                                id="max-participants"
+                                name="max-participants"
+                                value={maxParticipants}
+                                onChange={(e) => setMaxParticipants(e.target.value)}
+                            /><br/>
+
+                            <label htmlFor="exact-location">Location:</label><br/>
                             <div className="marker-inputs">
                                 <input
                                     type="text"
@@ -110,8 +219,21 @@ function Map() {
                                     onChange={(e) => setLongitude(e.target.value)}
                                     disabled
                                 />
+// <<<<<<< sl-frontendagain
+// =======
+//                                 <button
+//                                     type="submit"
+//                                     onClick={() => {
+//                                         sendEventToBackend()
+//                                         handleAddMarker()
+//                                     }}
+//                                     className="add-marker-button"
+//                                 >
+//                                     Submit
+//                                 </button>
+// >>>>>>> main
                             </div>
-                        </form>
+                        </div>
                         {/* Search form */}
                         <form onSubmit={handleSearchSubmit || handleAddMarker}>
                             <input size="32" ref={searchInputRef} type="text" placeholder="Search for a location"/>
@@ -153,7 +275,6 @@ function Map() {
                     </div>
                 </div>
             </div>
-
 
             <div className="map">
                 <MapContainer center={position} zoom={12} scrollWheelZoom={false}
