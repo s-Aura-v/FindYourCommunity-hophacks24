@@ -35,8 +35,7 @@ public class EventService {
 
         LocalDate today = LocalDate.now();
         Query query = new Query()
-                .with(Sort.by(Sort.Direction.DESC, "dateField")) // Replace "dateField" with your sorting field
-                .limit(10); // Limit to 10 documents
+                .with(Sort.by(Sort.Direction.DESC, "dateField"));
 
         List<Event> events10 =  mongoTemplate.find(query, Event.class);
 
@@ -55,7 +54,6 @@ public class EventService {
                 })
                 .collect(Collectors.toList());
 
-        System.out.println(futureEvents);
         return futureEvents;
     }
 
