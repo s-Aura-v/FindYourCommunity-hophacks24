@@ -49,6 +49,7 @@ body {
 
 /* Logo styling */
 .logo a {
+
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
@@ -57,6 +58,7 @@ body {
 
 /* Styling the navigation links */
 .nav-links {
+
     list-style-type: none;
 
     margin: 0;
@@ -67,11 +69,12 @@ body {
 
 /* Each link inside the nav bar */
 .nav-links li {
+
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
-
 .nav-links li a {
+
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
@@ -80,24 +83,30 @@ body {
 
 /* Hover effect for the links */
 .nav-links li a:hover {
+
     color: #ddd; /* Lighten the text color on hover */
 }
 
 html {
+
     scroll-behavior: smooth;
+
 }
 
 /* Responsive Design for Mobile Devices */
 @media (max-width: 768px) {
     .navbar {
+
         position: sticky;
     }
 
     .nav-links {
 
+
     }
 
     .nav-links li {
+
         margin-left: 0;
         margin-bottom: 1rem;
     }
