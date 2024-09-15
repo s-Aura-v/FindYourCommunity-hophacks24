@@ -215,31 +215,38 @@ function Map() {
                             <div className="marker-inputs">
                                 <input
                                     type="text"
-                                    placeholder="Enter Latitude"
+                                    placeholder="Latitude"
                                     value={latitude}
+                                    size="15"
                                     onChange={(e) => setLatitude(e.target.value)}
+                                    disabled
                                 />
                                 <input
                                     type="text"
-                                    placeholder="Enter Longitude"
+                                    placeholder="Longitude"
                                     value={longitude}
+                                    size="15"
                                     onChange={(e) => setLongitude(e.target.value)}
+                                    disabled
                                 />
-                                <button
-                                    type="submit"
-                                    onClick={() => {
-                                        sendEventToBackend()
-                                        handleAddMarker()
-                                    }}
-                                    className="add-marker-button"
-                                >
-                                    Submit
-                                </button>
+// <<<<<<< sl-frontendagain
+// =======
+//                                 <button
+//                                     type="submit"
+//                                     onClick={() => {
+//                                         sendEventToBackend()
+//                                         handleAddMarker()
+//                                     }}
+//                                     className="add-marker-button"
+//                                 >
+//                                     Submit
+//                                 </button>
+// >>>>>>> main
                             </div>
                         </div>
                         {/* Search form */}
-                        <form onSubmit={handleSearchSubmit}>
-                            <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
+                        <form onSubmit={handleSearchSubmit || handleAddMarker}>
+                            <input size="32" ref={searchInputRef} type="text" placeholder="Search for a location"/>
                             <button type="submit">Search</button>
                         </form>
                     </div>
@@ -247,8 +254,34 @@ function Map() {
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
                     <div className="individual-event">
-                        table of info;
-                        backend required.
+                        <div>
+                            <span>Event: </span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
+                    </div>
+                    <div className="individual-event">
+                        <div>
+                            <span>Event: </span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
+                    </div>
+                    <div className="individual-event">
+                        <div>
+                            <span>Event: Testing</span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
                     </div>
                 </div>
             </div>

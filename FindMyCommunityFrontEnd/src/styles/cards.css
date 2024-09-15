@@ -62,11 +62,13 @@ h3 {
 
 .external-links-list > li {
     display: inline-block;
-    margin: 0 0 0 0;
+    margin: auto;
 }
 
 .bbb{
     padding-top: 10px;
     text-align: center;
 }
+
+
 
