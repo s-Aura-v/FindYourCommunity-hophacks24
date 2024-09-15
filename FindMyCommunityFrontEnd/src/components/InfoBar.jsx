@@ -26,7 +26,7 @@ export function InfoBar() {
             {/* Info bar that appears unless closed in this session */}
             {isVisible && (
                 <div id="info-bar" className="info-bar-visible">
-                    <p>Welcome to FindMyCommunity! New to our Website?</p>
+                    <div>Welcome to FindMyCommunity! Use this platform to discover or add community service events in your area.</div>
                     <button id="close-info-bar" onClick={closeInfoBar}>
                         Close
                     </button>
