@@ -17,17 +17,27 @@ public class Event{
     @Id
     private String id;
     private String name;
+    private String description;
     private int max_participants;
-    private String location;
-    @DateTimeFormat(pattern="dd-MM-yyyy HH:mm")
-    private LocalDateTime date;
-    private String ownerSub;
+    private String date;
+    private String timeStart;
+    private String timeEnd;
+    private String ownerId;
+    private String tag;
+    private String latitude;
+    private String longitude;
 
-    public Event(String name, int max_participants, String location, LocalDateTime date, String ownerSub) {
+
+    public Event(String name, String description, int max_participants, String date, String timeStart, String timeEnd, String ownerId, String tag, String latitude, String longitude) {
         this.name = name;
-        this.max_participants = max_participants;
-        this.location = location;
+        this.description = description;
+        this.tag = tag;
         this.date = date;
-        this.ownerSub = ownerSub;
+        this.max_participants = max_participants;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.ownerId = ownerId;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }

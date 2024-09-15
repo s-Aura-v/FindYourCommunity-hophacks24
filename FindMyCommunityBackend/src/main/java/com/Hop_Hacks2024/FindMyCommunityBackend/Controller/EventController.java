@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 @RestController
 public class EventController {
@@ -18,7 +19,12 @@ public class EventController {
 
     @GetMapping("/events")
     public Iterable<Event> getAllEvents() {
-        System.out.println("Get all events");
         return eventService.getAllEvents();
+    }
+
+    @PostMapping("/create-event")
+    public ResponseEntity<Event> createEvent(@RequestBody HashMap<String, String> body) {
+        Event event = eventService.createEvent(body);
+        return ResponseEntity.ok().body(event);
     }
 }
