@@ -6,6 +6,7 @@ import com.Hop_Hacks2024.FindMyCommunityBackend.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class EventService {
         this.userRepository = userRepository;
     }
 
-    public Iterable<Event> getAllEvents(){
+    public List<Event> getAllEvents(){
         return eventRepository.findAll();
     }
 

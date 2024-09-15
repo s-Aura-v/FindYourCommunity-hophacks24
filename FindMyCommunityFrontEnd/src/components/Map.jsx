@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Icon} from "leaflet";
 import MarkerSVG from "../assets/marker.svg";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
@@ -6,8 +6,10 @@ import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import {backend_url} from "../config/constants.js";
 import axios from "axios";
 import {useAuth0} from "@auth0/auth0-react";
+import {getAdminStatus} from "../config/authentication.js";
 
 function Map() {
+    const [isAdmin, setIsAdmin] = useState(false)
     const {isAuthenticated, user} = useAuth0();
     const position = [40.7128, -74.0060];
     const [latitude, setLatitude] = useState('');
@@ -36,6 +38,22 @@ function Map() {
     const [timeEnd, setTimeEnd] = useState('');
     // const [latitude, setLatitude] = useState('');
     // const [longitude, setLongitude] = useState('');
+
+    useEffect(() => {
+        const fetchAdminStatus = async () => {
+            try {
+
+                const result = await getAdminStatus(user.email);
+                console.log("Fetched Admin Status:", result); // Log the result
+                setIsAdmin(result.admin); // Assuming `result` contains `admin` field
+            } catch (error) {
+                console.error('Failed to fetch admin status:', error);
+            }
+        };
+
+        fetchAdminStatus(); // Call the async function
+    }, [user]); // Empty dependency array to run only on mount
+
 
 
     const customIcon = new Icon({
@@ -128,8 +146,9 @@ function Map() {
     };
     return (
         <>
+
             <div className="events-overview" id="find-events">
-                <div className="upcoming-events">
+                {isAdmin && <div className="upcoming-events">
                     <h2>Create Event</h2>
                     <div className="forms-container">
 
@@ -247,7 +266,7 @@ function Map() {
                             <button type="submit">Search</button>
                         </form>
                     </div>
-                </div>
+                </div>}
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
                     <div className="individual-event">

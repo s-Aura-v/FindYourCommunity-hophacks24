@@ -17,3 +17,17 @@ export const handleGlobalLogin = (callback) => {
         console.error(err);
     })
 }
+
+export const getAdminStatus = async (userEmail) => {
+    try {
+        const response = await axios.post(backend_url + '/auth/getAdminStatus', { userEmail }, {
+            withCredentials: true, // Include credentials like cookies (if needed)
+        });
+        return response.data; // Return the data directly
+    } catch (error) {
+        // Handle any errors that occur during the request
+        console.error("Error fetching admin status:", error);
+        throw error;
+    }
+};
+

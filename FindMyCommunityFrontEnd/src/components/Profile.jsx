@@ -21,7 +21,6 @@ export function Profile() {
                     <div>
                         <h2>Hello {user ? user.name : "user"}</h2>
                         <span>{user ? <p>Email: {user.email}</p> : ""}</span>
-                        <h2>You have [x] upcoming events.</h2>
                     </div>
                     <div>
                         <img src={user ? user.picture : MarkerSVG} alt="placeholder" width="160"/>
