@@ -5,11 +5,10 @@ import {OpenStreetMapProvider} from "leaflet-geosearch";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 
 function Map() {
-    const position = [40.7826, 73.9656];
+    const position = [40.7826, -73.9656];
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
-    const [markers, setMarkers] = useState([
-    ]);
+    const [markers, setMarkers] = useState([]);
 
     const customIcon = new Icon({
         iconUrl: MarkerSVG,
@@ -72,13 +71,12 @@ function Map() {
                                    size="32"/><br/>
 
                             <label htmlFor="description">Event Description:</label><br/>
-                            <input type="" className="description" id="description" name="description"
-                                   size="32"/><br/>
+                            <textarea id="description" name="description" rows="5" cols="32"/><br/>
 
                             <label htmlFor="tags">Tags:</label><br/>
                             <select>
                                 <option value="0">Select Type:</option>
-                                <option value="1">Food bank</option>
+                                <option value="1">Food Bank</option>
                                 <option value="2">School Event</option>
                                 <option value="3">Cleanup</option>
                                 <option value="4">Animal Work</option>
@@ -98,24 +96,25 @@ function Map() {
                             <div className="marker-inputs">
                                 <input
                                     type="text"
-                                    placeholder="Enter Latitude"
+                                    placeholder="Latitude"
                                     value={latitude}
+                                    size="15"
                                     onChange={(e) => setLatitude(e.target.value)}
+                                    disabled
                                 />
                                 <input
                                     type="text"
-                                    placeholder="Enter Longitude"
+                                    placeholder="Longitude"
                                     value={longitude}
+                                    size="15"
                                     onChange={(e) => setLongitude(e.target.value)}
+                                    disabled
                                 />
-                                <button onClick={handleAddMarker} className="add-marker-button">
-                                    Add Marker
-                                </button>
                             </div>
                         </form>
                         {/* Search form */}
-                        <form onSubmit={handleSearchSubmit}>
-                            <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
+                        <form onSubmit={handleSearchSubmit || handleAddMarker}>
+                            <input size="32" ref={searchInputRef} type="text" placeholder="Search for a location"/>
                             <button type="submit">Search</button>
                         </form>
                     </div>
@@ -123,8 +122,34 @@ function Map() {
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
                     <div className="individual-event">
-                        table of info;
-                        backend required.
+                        <div>
+                            <span>Event: </span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
+                    </div>
+                    <div className="individual-event">
+                        <div>
+                            <span>Event: </span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
+                    </div>
+                    <div className="individual-event">
+                        <div>
+                            <span>Event: Testing</span><br/>
+                            <span>Date: </span><br/>
+                            <span>Time: </span>
+                        </div>
+                        <div>
+                            Remove
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,7 +164,7 @@ function Map() {
                     />
                     {markers.map((marker, index) => (
                         <Marker key={index} position={marker.geocode} icon={customIcon}>
-                        <Popup>
+                            <Popup>
                                 {marker.popUp}
                                 <br/>
                                 <button onClick={() => removeMarker(index)}>Remove Marker</button>
