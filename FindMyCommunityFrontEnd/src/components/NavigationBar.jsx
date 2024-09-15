@@ -70,12 +70,6 @@ export function NavigationBar() {
                 <ul className="nav-links">
                     <li><a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>Home</a></li>
                     <li><a href="#find-events">Find Events</a></li>
-                    <li>
-                        <button onClick={() => {
-                            addEvent();
-                        }}>Add Event
-                        </button>
-                    </li>
                     <li><a href="#about-us">About Us</a></li>
                     <li>
                         {!isAuthenticated ? (<button onClick={() => {
