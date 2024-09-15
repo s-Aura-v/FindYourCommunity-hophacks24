@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 import {Icon} from "leaflet";
 import {OpenStreetMapProvider} from 'leaflet-geosearch';
 import MarkerSVG from "../assets/marker.svg";
+import FindMyCommunity from "../assets/FindMyCommunity-.png"
 import React, {useState, useRef} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import Map from "./Map.jsx";
@@ -23,7 +24,7 @@ export function Profile() {
                         <span>{user ? <p>Email: {user.email}</p> : ""}</span>
                     </div>
                     <div>
-                        <img src={user ? user.picture : MarkerSVG} alt="placeholder" width="160"/>
+                        <img src={user ? user.picture : FindMyCommunity} alt="placeholder" width="160"/>
                     </div>
                 </div>
                 <Map/>

@@ -32,7 +32,7 @@ export function AboutUs() {
                             title="Saurav Lamichhane"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography gutterBottom variant="h5" component="div" style={{minHeight: "55px", maxHeight: "55px"}}>
                                 Saurav Lamichhane
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
@@ -56,14 +56,14 @@ export function AboutUs() {
                         </CardContent>
                     </Card>
 
-                    <Card sx={{maxWidth: 345, minWidth: 345}}>
+                    <Card sx={{maxWidth: 345, minWidth: 345} }>
                         <CardMedia
                             sx={{height: 300}}
                             image={Sone}
                             title="Sone"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography gutterBottom variant="h5" component="div" style={{minHeight: "55px", maxHeight: "55px"}}>
                                 Phone Pyae Sone Phyo (Soney)
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
@@ -94,7 +94,7 @@ export function AboutUs() {
                             title="Joseph Vega"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography gutterBottom variant="h5" component="div" style={{minHeight: "55px", maxHeight: "55px"}}>
                                 Joseph Vega
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
@@ -148,8 +148,6 @@ export function AboutUs() {
                         FindMyCommunity is your go-to resource for finding opportunities to contribute.
                     </div>
                 </div>
-
-                <div className="bbb">Let’s make a difference—one event, one volunteer at a time.</div>
             </div>
 
 

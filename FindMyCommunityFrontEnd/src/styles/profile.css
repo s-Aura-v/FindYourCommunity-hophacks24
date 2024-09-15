@@ -3,10 +3,10 @@ textarea {
 }
 
 .forms-container {
-    border: black 1px solid;
     height: 90%;
     overflow: auto;
 }
+
 
 .profile-container {
     display: grid;
@@ -31,7 +31,7 @@ textarea {
 .individual-event {
     display: flex;
     justify-content: space-between;
-    background-color: #f1e9cd;
+    background-color: #edf2f2;
     height: 75px;
     border: 1px black dot-dash;
     margin: auto auto 15px;
@@ -68,12 +68,12 @@ textarea {
 }
 
 .user-profile {
-    background-color: #f1e9cd;
+    background-color: #edf2f2;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .events-overview {
-    background-color: #f1e9cd;
+    background-color: #cfe4e6;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     display: flex;
 }
@@ -84,6 +84,6 @@ textarea {
 }
 
 .map {
-    background-color: #f1e9cd;
+    background-color: #cfe4e6;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
