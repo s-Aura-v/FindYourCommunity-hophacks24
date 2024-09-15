@@ -82,7 +82,7 @@ export function AboutUs() {
                                     </a></li>
                                 </ul>
                                 <br/>
-                                Role: Backend, AuthO, and Connection
+                                Roles: SpringBoot, Auth0, MongoDB, API Development
                             </Typography>
                         </CardContent>
                     </Card>
