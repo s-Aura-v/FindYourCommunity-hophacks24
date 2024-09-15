@@ -3,6 +3,7 @@ import axios from "axios";
 import {backend_url} from "../config/constants.js";
 import {useAuth0} from "@auth0/auth0-react";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 export function NavigationBar() {
     const {logout, user, isAuthenticated, loginWithRedirect} = useAuth0();
@@ -50,22 +51,22 @@ export function NavigationBar() {
         <>
             <nav className="navbar">
                 <div className="logo">
-                    <a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+                    <Link to={"/"}>
+
                         <img src="src/assets/FindMyCommunity-.png" alt="FindMyCommunity Logo" className="logo-img"/>
-                    </a>
+                    </Link>
                 </div>
                 <ul className="nav-links">
                     <li><a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>Home</a></li>
-                    <li><a href="#find-events">Find Events</a></li>
                     <li><a href="#about-us">About Us</a></li>
                     <li>
                         {!isAuthenticated ? (<div className="login-button" onClick={() => {
                             handleLogin()
-                        }}>Login</div>) : (<button className="login-button" onClick={() => {
+                        }}>Login</div>) : (<div className="login-button" onClick={() => {
                             handleLogout()
                         }}>
                             LogOut
-                        </button>)}
+                        </div>)}
                     </li>
                 </ul>
             </nav>

@@ -15,19 +15,25 @@ function Map() {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [markers, setMarkers] = useState([]);
+    const [upcomingEvents, setUpcomingEvents] = useState([]);
 
 
-    const [eventsArray, setEventsArray]   = useState([]);
+    const [eventsArray, setEventsArray] = useState([]);
     const getiDs = async () => {
-        const event = await axios.get<{ eventName, description, maxParticipants, date, timeStart, timeEnd, latitude, longitude }>(backend_url + "/people/events/");
+        const event = await axios.get < {
+            eventName,
+            description,
+            maxParticipants,
+            date,
+            timeStart,
+            timeEnd,
+            latitude,
+            longitude
+        } > (backend_url + "/people/events/");
         const eventData = event.data;
         setEventsArray(eventData);
         console.log(eventData);
     }
-
-
-
-
 
 
     const [eventName, setEventName] = useState('');
@@ -45,7 +51,6 @@ function Map() {
             try {
 
                 const result = await getAdminStatus(user.email);
-                console.log("Fetched Admin Status:", result); // Log the result
                 setIsAdmin(result.admin); // Assuming `result` contains `admin` field
             } catch (error) {
                 console.error('Failed to fetch admin status:', error);
@@ -54,7 +59,6 @@ function Map() {
 
         fetchAdminStatus(); // Call the async function
     }, [user]); // Empty dependency array to run only on mount
-
 
 
     const customIcon = new Icon({
@@ -145,6 +149,25 @@ function Map() {
     const removeMarker = (indexToRemove) => {
         setMarkers(markers.filter((_, index) => index !== indexToRemove));
     };
+
+    useEffect(() => {
+        axios.get(backend_url + "/events", {
+            withCredentials: true,
+        }).then((res) => {
+            setUpcomingEvents(res.data);
+            console.log(res.data);
+        })
+    }, [])
+
+    const mapRef = useRef(null);
+
+    const moveToEvent = (lat, lng) => {
+        if (mapRef.current) {
+            mapRef.current.setView([lat, lng], 15); // Adjust zoom level as needed
+        }
+    };
+
+
     return (
         <>
 
@@ -272,42 +295,31 @@ function Map() {
                 </div>}
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
-                    <div className="individual-event">
-                        <div>
-                            <span>Event: </span><br/>
-                            <span>Date: </span><br/>
-                            <span>Time: </span>
-                        </div>
-                        <div>
-                            Remove
-                        </div>
+                    <div style={{overflow: 'auto', height: '32rem', width: '100%'}}>
+
+                        {upcomingEvents && upcomingEvents.map((event, index) => (
+                            <div className="individual-event" key={index} style={{margin: '5px'}}
+                                 onClick={() => moveToEvent(event.latitude, event.longitude)}>
+                                <div>
+                                    <span>Event: {event.name}</span><br/>
+                                    <span>Date: {event.date} ({event.timeStart} - {event.timeEnd})</span><br/>
+                                    <span>Description: {event.description} </span><br/>
+                                    <span>Location: <br/>lat-{event.latitude}, <br/>long-{event.longitude}</span><br/>
+
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                    <div className="individual-event">
-                        <div>
-                            <span>Event: </span><br/>
-                            <span>Date: </span><br/>
-                            <span>Time: </span>
-                        </div>
-                        <div>
-                            Remove
-                        </div>
-                    </div>
-                    <div className="individual-event">
-                        <div>
-                            <span>Event: Testing</span><br/>
-                            <span>Date: </span><br/>
-                            <span>Time: </span>
-                        </div>
-                        <div>
-                            Remove
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
 
             <div className="map">
                 <MapContainer center={position} zoom={12} scrollWheelZoom={false}
-                              style={{height: '100%', width: '100wh'}}>
+                              style={{height: '100%', width: '100wh'}} whenReady={mapInstance => {
+                    mapRef.current = mapInstance;
+                }}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
