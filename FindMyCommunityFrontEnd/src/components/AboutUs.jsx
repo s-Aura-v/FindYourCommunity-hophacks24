@@ -22,9 +22,8 @@ export function AboutUs() {
     return (
         <>
             <div className="about-us-container">
-                <h2>About Us</h2>
-                <p> At <b>FindMyCommunity</b>, we believe in the power of community service to create lasting, positive
-                    change. </p>
+                <h2>Who Are We?</h2>
+                We are three junior college students from SUNY Oswego here to make a difference.
                 <div className="cards-setup">
                     <Card sx={{maxWidth: 345, minWidth: 345}}>
                         <CardMedia
