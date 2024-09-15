@@ -1,7 +1,7 @@
 .about-us-container {
     padding-top: 130px; /* Adjust this value according to your navbar height */
     margin-top: -80px;
-    background-color: #FBF9F1;
+
 }
 
 .about-us-descriptions-container {
@@ -10,7 +10,7 @@
     align-items: flex-start; /* Align the sections at the top */
     gap: 20px; /* Adds space between the items */
     padding: 10px; /* Adds padding around the container */
-    background-color: #FBF9F1;
+
 }
 
 .section2{
