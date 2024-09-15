@@ -229,19 +229,16 @@ function Map() {
                                     onChange={(e) => setLongitude(e.target.value)}
                                     disabled
                                 />
-// <<<<<<< sl-frontendagain
-// =======
-//                                 <button
-//                                     type="submit"
-//                                     onClick={() => {
-//                                         sendEventToBackend()
-//                                         handleAddMarker()
-//                                     }}
-//                                     className="add-marker-button"
-//                                 >
-//                                     Submit
-//                                 </button>
-// >>>>>>> main
+                                 <button
+                                     type="submit"
+                                     onClick={() => {
+                                         sendEventToBackend()
+                                         handleAddMarker()
+                                     }}
+                                     className="add-marker-button"
+                                 >
+                                     Submit
+                                 </button>
                             </div>
                         </div>
                         {/* Search form */}
