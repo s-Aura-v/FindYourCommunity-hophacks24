@@ -1,4 +1,4 @@
-import  {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {Icon} from "leaflet";
 import MarkerSVG from "../assets/marker.svg";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
@@ -66,7 +66,10 @@ function Map() {
             alert('Please enter valid latitude and longitude values');
         }
     };
-    ;
+
+    const sendEventToBackend = (event) => {
+        console.log(event.target.value)
+    }
 
     // New removeMarker function
     const removeMarker = (indexToRemove) => {
@@ -107,21 +110,27 @@ function Map() {
 
                             <label htmlFor="exact-location">Location</label><br/>
                             <div className="marker-inputs">
-                                <input
-                                    type="text"
-                                    placeholder="Enter Latitude"
-                                    value={latitude}
-                                    onChange={(e) => setLatitude(e.target.value)}
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Enter Longitude"
-                                    value={longitude}
-                                    onChange={(e) => setLongitude(e.target.value)}
-                                />
-                                <button onClick={handleAddMarker} className="add-marker-button">
-                                    Add Marker
-                                </button>
+                                <form onSubmit={sendEventToBackend}>
+
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Latitude"
+                                        value={latitude}
+                                        onChange={(e) => setLatitude(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Longitude"
+                                        value={longitude}
+                                        onChange={(e) => setLongitude(e.target.value)}
+                                    />
+                                    <button onClick={() => {
+                                        handleAddMarker();
+                                    }} className="add-marker-button">
+                                        Submit
+                                    </button>
+                                </form>
+
 
                                 <form onSubmit={handleSearchSubmit}>
                                     <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
