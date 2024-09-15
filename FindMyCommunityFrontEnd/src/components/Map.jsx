@@ -132,117 +132,115 @@ function Map() {
                 <div className="upcoming-events">
                     <h2>Create Event</h2>
                     <div className="forms-container">
-                        <div>
-                            <label htmlFor="ename">Event Name:</label><br/>
+
+                        <label htmlFor="ename">Event Name:</label><br/>
+                        <input
+                            type="text"
+                            id="ename"
+                            name="ename"
+                            placeholder="Enter the event name"
+                            size="32"
+                            value={eventName}
+                            required
+                            onChange={(e) => setEventName(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="description">Event Description:</label><br/>
+                        <input
+                            type="text"
+                            className="description"
+                            id="description"
+                            name="description"
+                            size="32"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="tags">Tags:</label><br/>
+                        <select
+                            id="tags"
+                            name="tags"
+                            value={tags}
+                            onChange={(e) => setTags(e.target.value)}
+                        >
+                            <option value="">Select Type:</option>
+                            <option value="Food bank">Food bank</option>
+                            <option value="School Event">School Event</option>
+                            <option value="Cleanup">Cleanup</option>
+                            <option value="Animal Work">Animal Work</option>
+                            <option value="Blood Drive">Blood Drive</option>
+                            <option value="Misc">Misc</option>
+                        </select><br/>
+
+                        <label htmlFor="date">Date:</label><br/>
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="time">TimeStart:</label><br/>
+                        <input
+                            type="time"
+                            id="timeStart"
+                            name="timeStart"
+                            required
+                            value={timeStart}
+                            onChange={(e) => setTimeStart(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="time">TimeEnd:</label><br/>
+                        <input
+                            type="time"
+                            id="timeEnd"
+                            name="timeEnd"
+                            required
+                            value={timeEnd}
+                            onChange={(e) => setTimeEnd(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="max-participants">Maximum Participants:</label><br/>
+                        <input
+                            type="text"
+                            className="max-participants"
+                            id="max-participants"
+                            name="max-participants"
+                            value={maxParticipants}
+                            onChange={(e) => setMaxParticipants(e.target.value)}
+                        /><br/>
+
+                        <label htmlFor="exact-location">Location:</label><br/>
+                        <div className="marker-inputs">
                             <input
                                 type="text"
-                                id="ename"
-                                name="ename"
-                                placeholder="Enter the event name"
-                                size="32"
-                                value={eventName}
-                                required
-                                onChange={(e) => setEventName(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="description">Event Description:</label><br/>
+                                placeholder="Latitude"
+                                value={latitude}
+                                size="15"
+                                onChange={(e) => setLatitude(e.target.value)}
+                                disabled
+                            />
                             <input
                                 type="text"
-                                className="description"
-                                id="description"
-                                name="description"
-                                size="32"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="tags">Tags:</label><br/>
-                            <select
-                                id="tags"
-                                name="tags"
-                                value={tags}
-                                onChange={(e) => setTags(e.target.value)}
+                                placeholder="Longitude"
+                                value={longitude}
+                                size="15"
+                                onChange={(e) => setLongitude(e.target.value)}
+                                disabled
+                            />
+                            <button
+                                type="submit"
+                                onClick={() => {
+                                    sendEventToBackend()
+                                    handleAddMarker()
+                                }}
+                                className="add-marker-button"
                             >
-                                <option value="">Select Type:</option>
-                                <option value="Food bank">Food bank</option>
-                                <option value="School Event">School Event</option>
-                                <option value="Cleanup">Cleanup</option>
-                                <option value="Animal Work">Animal Work</option>
-                                <option value="Blood Drive">Blood Drive</option>
-                                <option value="Misc">Misc</option>
-                            </select><br/>
-
-                            <label htmlFor="date">Date:</label><br/>
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="time">TimeStart:</label><br/>
-                            <input
-                                type="time"
-                                id="timeStart"
-                                name="timeStart"
-                                required
-                                value={timeStart}
-                                onChange={(e) => setTimeStart(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="time">TimeEnd:</label><br/>
-                            <input
-                                type="time"
-                                id="timeEnd"
-                                name="timeEnd"
-                                required
-                                value={timeEnd}
-                                onChange={(e) => setTimeEnd(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="max-participants">Maximum Participants:</label><br/>
-                            <input
-                                type="text"
-                                className="max-participants"
-                                id="max-participants"
-                                name="max-participants"
-                                value={maxParticipants}
-                                onChange={(e) => setMaxParticipants(e.target.value)}
-                            /><br/>
-
-                            <label htmlFor="exact-location">Location:</label><br/>
-                            <div className="marker-inputs">
-                                <input
-                                    type="text"
-                                    placeholder="Latitude"
-                                    value={latitude}
-                                    size="15"
-                                    onChange={(e) => setLatitude(e.target.value)}
-                                    disabled
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Longitude"
-                                    value={longitude}
-                                    size="15"
-                                    onChange={(e) => setLongitude(e.target.value)}
-                                    disabled
-                                />
-
-                                <button
-                                    type="submit"
-                                    onClick={() => {
-                                        sendEventToBackend()
-                                        handleAddMarker()
-                                    }}
-                                    className="add-marker-button"
-                                >
-                                    Submit
-                                </button>
-
-                            </div>
+                                Submit
+                            </button>
                         </div>
+
                         {/* Search form */}
                         <form onSubmit={handleSearchSubmit || handleAddMarker}>
                             <input size="32" ref={searchInputRef} type="text" placeholder="Search for a location"/>

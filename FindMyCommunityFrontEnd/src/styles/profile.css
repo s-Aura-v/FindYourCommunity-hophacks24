@@ -2,6 +2,12 @@ textarea {
     resize: none;
 }
 
+.forms-container {
+    border: black 1px solid;
+    height: 90%;
+    overflow: auto;
+}
+
 .profile-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -37,7 +43,7 @@ textarea {
 }
 
 .events-overview {
-    
+
     grid-area: 2 / 1 / 4 / 2;
 }
 
