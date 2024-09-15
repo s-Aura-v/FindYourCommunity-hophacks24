@@ -13,19 +13,15 @@ function Map() {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [markers, setMarkers] = useState([
-        {
-            geocode: [48.86, 2.3522],
-            popUp: "Hello, I am pop up 1"
-        },
-        {
-            geocode: [48.85, 2.3522],
-            popUp: "Hello, I am pop up 2"
-        },
-        {
-            geocode: [48.855, 2.34],
-            popUp: "Hello, I am pop up 3"
-        }
     ]);
+    // const [upcomingEventsArray, setEventsData]   = useState(UserEvents>([]));
+    //
+    // const getiDs = async () => {
+    //     const events = axios.get<{ eventID, eventName, eventDescription, maxParticipants, date, timeStart, timeEnd, tags, latitude, longitude }>(backend_url + "/events");
+    //     const eventsData = events.data;
+    //     setEventsData(eventsData);
+    //     console.log(eventsData);
+    // }
 
     const [eventName, setEventName] = useState('');
     const [description, setDescription] = useState('');

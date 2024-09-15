@@ -3,7 +3,6 @@ textarea {
 }
 
 .forms-container {
-    border: black 1px solid;
     height: 90%;
     overflow: auto;
 }
