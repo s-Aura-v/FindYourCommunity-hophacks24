@@ -11,8 +11,8 @@ body {
 
 /* Styling for the logo image */
 .logo-img {
-    height: 70px;  /* Adjust this value based on your logo's dimensions */
-    width: auto;   /* This keeps the aspect ratio of the image */
+    height: 70px; /* Adjust this value based on your logo's dimensions */
+    width: auto; /* This keeps the aspect ratio of the image */
     display: block;
 }
 
@@ -77,6 +77,7 @@ body {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
+
 .nav-links li a {
 
     color: white;
@@ -89,6 +90,16 @@ body {
 .nav-links li a:hover {
 
     color: #ddd; /* Lighten the text color on hover */
+}
+
+.login-button {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.login-button:hover {
+    color: #ddd;
+    font-size: 1.2rem;
 }
 
 html {
