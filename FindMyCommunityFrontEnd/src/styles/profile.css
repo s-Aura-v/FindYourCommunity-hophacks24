@@ -1,3 +1,7 @@
+textarea {
+    resize: none;
+}
+
 .profile-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -18,15 +22,18 @@
     padding: 20px;
 }
 
-
-.user-profile { grid-area: 1 / 1 / 2 / 3; }
-.events-overview { grid-area: 2 / 1 / 4 / 2; }
-.map { grid-area: 2 / 2 / 4 / 3; }
+.individual-event {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1e9cd;
+    height: 75px;
+    border: 1px black dot-dash;
+    margin: auto auto 15px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset
+}
 
 .user-profile {
     grid-area: 1 / 1 / 2 / 3;
-    display: flex;
-    justify-content: space-between;
 }
 
 .events-overview {
@@ -39,8 +46,25 @@
 }
 
 .user-profile {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.map {
+    grid-area: 2 / 2 / 4 / 3;
+}
+
+.description {
+    display: block;
+    text-align: left;
+    height: 120px;
+}
+
+.user-profile {
     background-color: #f1e9cd;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;}
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
 .events-overview {
     background-color: #f1e9cd;
@@ -52,7 +76,6 @@
     width: 50%;
     /*background-color: pink;*/
 }
-
 
 .map {
     background-color: #f1e9cd;

@@ -109,7 +109,7 @@ export function AboutUs() {
                                     </a></li>
                                     <li><a href="mailto:jvega2@oswego.edu"><img src={Email}
                                                                                 className="external-links"
-                                                                                alt="Webpage"/>
+                                                                                alt="Webpage"/>jvega2
                                     </a></li>
                                 </ul>
                                 <br/>
