@@ -14,6 +14,8 @@ import Joseph from '../assets/joseph.png'
 
 import LinkedIn from '../assets/linkedin.svg'
 import GitHub from '../assets/github.svg'
+import Email from '../assets/email.svg'
+import WWW from '../assets/www.svg'
 
 
 export function AboutUs() {
@@ -24,7 +26,7 @@ export function AboutUs() {
                 <p> At <b>FindMyCommunity</b>, we believe in the power of community service to create lasting, positive
                     change. </p>
                 <div className="cards-setup">
-                    <Card sx={{maxWidth: 345}}>
+                    <Card sx={{maxWidth: 345, minWidth: 345}}>
                         <CardMedia
                             sx={{height: 300}}
                             image={Saurav}
@@ -35,13 +37,27 @@ export function AboutUs() {
                                 Saurav Lamichhane
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+                                <ul className="external-links-list">
+                                    <li><a href="https://www.linkedin.com/in/s-aura-v/"><img src={LinkedIn}
+                                                                                             className="external-links"
+                                                                                             alt="LinkedIn"/>in/s-aura-v</a>
+                                    </li>
+                                    <li><a href="https://github.com/s-Aura-v"><img src={GitHub}
+                                                                                   className="external-links"
+                                                                                   alt="GitHub"/>/s-aura-v
+                                    </a></li>
+                                    <li><a href="https://s-aura-v.com"><img src={WWW}
+                                                                            className="external-links"
+                                                                            alt="Webpage"/>s-aura-v.com
+                                    </a></li>
+                                </ul>
+                                <br/>
+                                Roles: Frontend & Map Implementation
                             </Typography>
                         </CardContent>
                     </Card>
 
-                    <Card sx={{maxWidth: 345, minWidth: 245}}>
+                    <Card sx={{maxWidth: 345, minWidth: 345}}>
                         <CardMedia
                             sx={{height: 300}}
                             image={Sone}
@@ -49,14 +65,30 @@ export function AboutUs() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                Sone
+                                Phone Pyae Sone Phyo (Soney)
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                                <ul className="external-links-list">
+                                    <li><a href="https://www.linkedin.com/in/soney7/"><img src={LinkedIn}
+                                                                                           className="external-links"
+                                                                                           alt="LinkedIn"/>in/soney7</a>
+                                    </li>
+                                    <li><a href="https://github.com/sonephyo"><img src={GitHub}
+                                                                                   className="external-links"
+                                                                                   alt="GitHub"/>/sonephyo
+                                    </a></li>
+                                    <li><a href="https://www.sonephyo.com/"><img src={WWW}
+                                                                                 className="external-links"
+                                                                                 alt="Webpage"/>sonephyo.com
+                                    </a></li>
+                                </ul>
+                                <br/>
+                                Role: Backend, AuthO, and Connection
                             </Typography>
                         </CardContent>
                     </Card>
 
-                    <Card sx={{maxWidth: 345, minWidth: 245}}>
+                    <Card sx={{maxWidth: 345, minWidth: 345}}>
                         <CardMedia
                             sx={{height: 300}}
                             image={Joseph}
@@ -67,8 +99,22 @@ export function AboutUs() {
                                 Joseph Vega
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                                Frontend
-                                Map Implementation
+                                <ul className="external-links-list">
+                                    <li><a href="https://www.linkedin.com/in/joseph-vega-7651911b5/"><img src={LinkedIn}
+                                                                                                          className="external-links"
+                                                                                                          alt="LinkedIn"/>in/jvega2</a>
+                                    </li>
+                                    <li><a href="https://github.com/josephavega"><img src={GitHub}
+                                                                                      className="external-links"
+                                                                                      alt="GitHub"/>/josephavega
+                                    </a></li>
+                                    <li><a href="mailto:jvega2@oswego.edu"><img src={Email}
+                                                                                className="external-links"
+                                                                                alt="Webpage"/>
+                                    </a></li>
+                                </ul>
+                                <br/>
+                                Roles: Frontend and Graphic Designer
                             </Typography>
                         </CardContent>
                     </Card>
@@ -76,7 +122,7 @@ export function AboutUs() {
                 </div>
                 <div className="about-us-descriptions-container">
                     <div className="section2">
-                    <h3>Our Story</h3>
+                        <h3>Our Story</h3>
 
                         <b>FindMyCommunity</b> was founded to make it easier for people to discover and participate in
                         community service events.
