@@ -148,8 +148,6 @@ export function AboutUs() {
                         FindMyCommunity is your go-to resource for finding opportunities to contribute.
                     </div>
                 </div>
-
-                <div className="bbb">Let’s make a difference—one event, one volunteer at a time.</div>
             </div>
 
 
