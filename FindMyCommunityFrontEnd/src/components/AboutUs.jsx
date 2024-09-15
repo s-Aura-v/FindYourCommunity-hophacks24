@@ -150,7 +150,7 @@ export function AboutUs() {
                     </div>
                 </div>
 
-                <p>Let’s make a difference—one event, one volunteer at a time.</p>
+                <div className="bbb">Let’s make a difference—one event, one volunteer at a time.</div>
             </div>
 
 

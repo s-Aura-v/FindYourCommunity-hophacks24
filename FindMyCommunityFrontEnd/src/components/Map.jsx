@@ -1,11 +1,11 @@
-import {useRef, useState} from 'react';
+import  {useRef, useState} from 'react';
 import {Icon} from "leaflet";
 import MarkerSVG from "../assets/marker.svg";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 
 function Map() {
-    const position = [48.8566, 2.3522];
+    const position = [40.7826, 73.9656];
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [markers, setMarkers] = useState([
@@ -110,39 +110,33 @@ function Map() {
 
                             <label htmlFor="exact-location">Location</label><br/>
                             <div className="marker-inputs">
-                                <form onSubmit={sendEventToBackend}>
-
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Latitude"
-                                        value={latitude}
-                                        onChange={(e) => setLatitude(e.target.value)}
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Longitude"
-                                        value={longitude}
-                                        onChange={(e) => setLongitude(e.target.value)}
-                                    />
-                                    <button onClick={() => {
-                                        handleAddMarker();
-                                    }} className="add-marker-button">
-                                        Submit
-                                    </button>
-                                </form>
-
-
-                                <form onSubmit={handleSearchSubmit}>
-                                    <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
-                                    <button type="submit">Search</button>
-                                </form>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Latitude"
+                                    value={latitude}
+                                    onChange={(e) => setLatitude(e.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Enter Longitude"
+                                    value={longitude}
+                                    onChange={(e) => setLongitude(e.target.value)}
+                                />
+                                <button onClick={handleAddMarker} className="add-marker-button">
+                                    Add Marker
+                                </button>
                             </div>
+                        </form>
+                        {/* Search form */}
+                        <form onSubmit={handleSearchSubmit}>
+                            <input ref={searchInputRef} type="text" placeholder="Search for a location"/>
+                            <button type="submit">Search</button>
                         </form>
                     </div>
                 </div>
                 <div className="nearby-events">
                     <h2>Upcoming Events</h2>
-                    <div>
+                    <div className="individual-event">
                         table of info;
                         backend required.
                     </div>
@@ -158,7 +152,7 @@ function Map() {
                     />
                     {markers.map((marker, index) => (
                         <Marker key={index} position={marker.geocode} icon={customIcon}>
-                            <Popup>
+                        <Popup>
                                 {marker.popUp}
                                 <br/>
                                 <button onClick={() => removeMarker(index)}>Remove Marker</button>
